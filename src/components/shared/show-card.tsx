@@ -1,21 +1,23 @@
 import React from "react"
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { Show } from "@/@types/show";
 
 
 interface Props {
     className?: string
+    show: Show;
 }
 
-export const ShowCard: React.FC<Props> = ({ className }) => {
+export const ShowCard: React.FC<Props> = ({ className, show }) => {
     return (
         <>
             <Card className={cn(className)}>
                 <CardContent className="text-center">
-                    <p>12.05.2025</p>
-                    <CardTitle className="py-2 text-xl">Artist</CardTitle>
-                    <p>Location</p>
-                    <p className="mt-6">18:00 - 21:00</p>
+                    <p>{show.date}</p>
+                    <CardTitle className="py-2 text-xl">{show.artist}</CardTitle>
+                    <p>{show.location}</p>
+                    <p className="mt-6">{show.start} - {show.end}</p>
                 </CardContent>
             </Card>
         </>
