@@ -8,11 +8,7 @@ import { useEffect } from "react";
 
 
 export default function Home() {
-
-  const fetchShows = useShowStore((store) => store.fetchShows)
-  useEffect(() => {
-    fetchShows();
-  }, [])
+  
 
   return (
     <div>

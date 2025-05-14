@@ -2,7 +2,7 @@ import React from "react"
 import { ShowCard } from "./show-card"
 import { useShowStore } from "@/stores/show"
 import { Skeleton } from "../ui/skeleton"
-import { Show } from "@/@types/show"
+import Link from "next/link"
 
 
 interface Props {
@@ -21,7 +21,7 @@ export const ShowList: React.FC<Props> = ({ className }) => {
                 key={index} 
                 className="w-[250px] h-[250px]"/>)
 
-                : shows.map((show) => <ShowCard show={show} key={show.id} />)
+                : shows.map((show) => <Link href={`booking/${show.id}`} key={show.id}><ShowCard show={show} /></Link> )
             }
         </div>
     )
