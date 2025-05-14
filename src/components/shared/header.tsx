@@ -3,7 +3,7 @@ import { Container } from "./container";
 import React from "react";
 import Link from "next/link";
 import { Button } from "../ui/button";
-
+import BookingPage from "@/app/bookingpage/bookingpage";
 
 interface Props {
     className?: string;
@@ -19,7 +19,7 @@ export const Header: React.FC<Props> = ({ className }) => {
                 <div>
                     <span>Already booked?</span>
                     <Button asChild>
-                        <Link href="/"> Get tickets</Link>
+                        <Link href="/bookingpage"> Get tickets</Link>
                     </Button>
                 </div>
             </Container>
