@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const Loader: React.FC<Props> = ({ className, children }) => {
-
+    
     const { fetchShows, isLoading } = useShowStore()
     useEffect(() => {
         fetchShows();

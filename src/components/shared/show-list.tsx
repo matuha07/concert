@@ -18,7 +18,7 @@ export const ShowList: React.FC<Props> = ({ className }) => {
             {
                 isLoading ? 
                 [...new Array(10)].map((_, index) => <Skeleton 
-                key={index} 
+                key={index}
                 className="w-[250px] h-[250px]"/>)
 
                 : shows.map((show) => <Link href={`booking/${show.id}`} key={show.id}><ShowCard show={show} /></Link> )

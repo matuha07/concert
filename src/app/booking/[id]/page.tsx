@@ -1,23 +1,31 @@
 "use client"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardTitle } from "@/components/ui/card"
-import Link from "next/link";
-import { Show } from "@/@types/show";
 import { useShowStore } from "@/stores/show"
 import { useParams } from "next/navigation";
 import { ShowCard } from "@/components/shared/show-card";
 import { Stage } from "@/components/shared/stage";
 import { SelectedSeats } from "@/components/shared/selectedseats";
+import { useRowsStore } from "@/stores/rows";
+
+
+
 
 export default function BookingPage() {
+  
 
   const { id } = useParams<{ id: string }>()
   const { getShowById } = useShowStore()
   const show = getShowById(Number(id))
-  
+
+
+
+  const { rows, fetchRows, isLoading } = useRowsStore();
+
   if (!show) {
     return <div>Show not found</div>
   }
+
+  const concertId = show.concertId;
+  const showId = show.id;
 
   return (
     <>
@@ -29,8 +37,7 @@ export default function BookingPage() {
         </div>
 
         <div className="flex gap-10 mt-10">
-          <Stage />
-          <SelectedSeats />
+          <Stage concertId={concertId} showId={showId}  />          <SelectedSeats />
         </div>
       </div>
     </>
